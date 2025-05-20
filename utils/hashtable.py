@@ -1,3 +1,5 @@
+from datetime import datetime
+
 class Node:
     def __init__(self, key, value):
         self.key = key
@@ -16,9 +18,11 @@ class HashTable:
         return hash(key) % self.capacity
 
     def _remove_oldest(self):
-        if self.order:
-            oldest_key = self.order.pop(0)
-            self.remove(oldest_key)
+        if not self.order:
+            return
+        oldest_key = min(self.order, key=lambda k: datetime.strptime(k, "%Y-%m-%d %H:%M:%S"))
+        self.order.remove(oldest_key)
+        self.remove(oldest_key)
 
     def insert(self, key, value):
         if key in self:
