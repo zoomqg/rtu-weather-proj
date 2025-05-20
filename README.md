@@ -12,7 +12,15 @@ Pēdējo trīs pieprasījumu rezultāti tiek saglabāti JSON failā. Tā saturu 
 
 ## Demonstrācija
 
-*placeholder*
+
+https://github.com/user-attachments/assets/e6608833-ecac-4e06-8236-4c7fcb37da91
+
+
+
+https://github.com/user-attachments/assets/ab2ac554-02de-40e5-b172-dca508d52154
+
+
+
 
 ## Atkarības
 
