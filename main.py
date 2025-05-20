@@ -28,7 +28,7 @@ json_reader.read_data()
 json_reader.hash_table.insert(datetime.now().strftime("%Y-%m-%d %H:%M:%S"), response)
 json_reader.save_data()
 
-print("Results saved to results.json")
+print("Results saved to results.json\n")
 print("Do you want to see the last 3 requests? (y/n)")
 if input().lower() == "y":
     json_reader.hash_table.print_all()
