@@ -2,12 +2,11 @@ from utils.hashtable import HashTable
 import json
 
 class JsonProcessor:
-    def __init__(self, file_path):
+    def __init__(self, file_path, limit=10):
         self.file_path = file_path
-        self.hash_table = HashTable(10)
+        self.hash_table = HashTable(limit)
 
-    def write_data(self, date_str, value):
-        self.hash_table.insert(date_str, value)
+    def save_data(self):
         data = {}
         for index in range(self.hash_table.capacity):
             current = self.hash_table.table[index]

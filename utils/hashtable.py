@@ -10,27 +10,34 @@ class HashTable:
         self.capacity = capacity
         self.size = 0
         self.table = [None] * capacity
+        self.order = []
 
     def _hash(self, key):
         return hash(key) % self.capacity
 
+    def _remove_oldest(self):
+        if self.order:
+            oldest_key = self.order.pop(0)
+            self.remove(oldest_key)
+
     def insert(self, key, value):
+        if key in self:
+            self.remove(key)
+
+        if self.size >= self.capacity:
+            self._remove_oldest()
+
         index = self._hash(key)
 
         if self.table[index] is None:
             self.table[index] = Node(key, value)
-            self.size += 1
         else:
-            current = self.table[index]
-            while current:
-                if current.key == key:
-                    current.value = value
-                    return
-                current = current.next
             new_node = Node(key, value)
             new_node.next = self.table[index]
             self.table[index] = new_node
-            self.size += 1
+
+        self.order.append(key)
+        self.size += 1
 
     def search(self, key):
         index = self._hash(key)
@@ -56,6 +63,8 @@ class HashTable:
                 else:
                     self.table[index] = current.next
                 self.size -= 1
+                if key in self.order:
+                    self.order.remove(key)
                 return
             previous = current
             current = current.next
@@ -71,3 +80,10 @@ class HashTable:
             return True
         except KeyError:
             return False
+
+    def print_all(self):
+        for index in range(self.capacity):
+            current = self.table[index]
+            while current:
+                print(f"Date: {current.key}:\nResponse: {current.value}")
+                current = current.next
