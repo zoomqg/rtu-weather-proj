@@ -39,12 +39,18 @@ Pilns atkarību saraksts ir aprakstīts failā `requirements.txt`.
    venv\Scripts\activate     # Windows
    ```
 
-2. Instalējiet atkarības:
+2. Izveidojiet failu `.env` projekta mapē un norādiet API atslēgas:
+   ```
+   GOOGLE_GEOCODE_KEY=your_google_geocode_api_key
+   OPENROUTE_KEY=your_openroute_api_key
+   ```
+
+3. Instalējiet atkarības:
    ```bash
    pip install -r requirements.txt
    ```
 
-3. Palaidiet projektu:
+4. Palaidiet projektu:
    ```bash
    python main.py
    ```
