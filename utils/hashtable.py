@@ -85,5 +85,5 @@ class HashTable:
         for index in range(self.capacity):
             current = self.table[index]
             while current:
-                print(f"Date: {current.key}:\nResponse: {current.value}")
+                print(f"Date: {current.key}:\nResponse: {current.value}\n\n")
                 current = current.next

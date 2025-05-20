@@ -23,12 +23,12 @@ response = make_ai_request(weather_json=weather_json, location_name=location_nam
 print("Here are the outfit suggestions:")
 print(response)
 
-json_reader = JsonProcessor("results.json")
+json_reader = JsonProcessor("results.json", capacity=3)
 json_reader.read_data()
 json_reader.hash_table.insert(datetime.now().strftime("%Y-%m-%d %H:%M:%S"), response)
 json_reader.save_data()
 
 print("Results saved to results.json")
-print("Do you want to see the last 10 results? (y/n)")
+print("Do you want to see the last 3 requests? (y/n)")
 if input().lower() == "y":
     json_reader.hash_table.print_all()

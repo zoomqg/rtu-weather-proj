@@ -2,9 +2,9 @@ from utils.hashtable import HashTable
 import json
 
 class JsonProcessor:
-    def __init__(self, file_path, limit=10):
+    def __init__(self, file_path, capacity=5):
         self.file_path = file_path
-        self.hash_table = HashTable(limit)
+        self.hash_table = HashTable(capacity)
 
     def save_data(self):
         data = {}
